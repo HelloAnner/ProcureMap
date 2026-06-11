@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-muted);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-sans);
+}
+
+/* ── Supplier Map ── */
+.na-supplier-map .leaflet-tile-pane {
+  filter: brightness(0.85) contrast(1.05) saturate(0.6);
+}
+
+.na-marker-mill,
+.na-marker-agent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.45), 0 0 6px rgba(0,0,0,0.5);
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.na-marker-mill {
+  background: var(--warning);
+}
+
+.na-marker-agent {
+  background: var(--accent);
+}
+
+.na-marker-origin {
+  background: #ffd45c;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px rgba(255,212,92,0.35), 0 0 20px rgba(255,212,92,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2a1c00;
+  font-weight: 800;
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+/* Dark tooltips */
+.na-supplier-map .leaflet-tooltip {
+  background: rgba(15, 22, 41, 0.94) !important;
+  color: #e8ecf4 !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45) !important;
+  padding: 8px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  backdrop-filter: blur(10px);
+}
+
+.na-supplier-map .leaflet-tooltip-top::before {
+  border-top-color: rgba(15, 22, 41, 0.94) !important;
+}
+
+.na-supplier-map .leaflet-tooltip-bottom::before {
+  border-bottom-color: rgba(15, 22, 41, 0.94) !important;
+}
+
+.na-tt-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+  max-width: 260px;
+}
+
+.na-tt-meta {
+  color: #97a2bd;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.na-tt-meta span {
+  margin-right: 8px;
+}
+
+.na-tt-badge {
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.na-tt-badge-M {
+  background: rgba(255,122,89,0.18);
+  color: var(--warning);
+}
+
+.na-tt-badge-A {
+  background: rgba(77,214,255,0.18);
+  color: var(--accent);
+}
+
+.na-tt-email {
+  color: var(--success);
+  margin-top: 2px;
+}
+
+/* Override Leaflet attribution for dark theme */
+.na-supplier-map .leaflet-control-attribution {
+  background: rgba(0,0,0,0.45) !important;
+  color: #888 !important;
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+}
+
+.na-supplier-map .leaflet-control-attribution a {
+  color: #aaa !important;
+}

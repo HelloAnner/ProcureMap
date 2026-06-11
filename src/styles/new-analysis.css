@@ -1,0 +1,85 @@
+/* NewAnalysisPage — pseudo-class styles */
+
+/* Keyword input */
+.na-keyword-input {
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.na-keyword-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+  background: #FFFFFF !important;
+}
+.na-keyword-input::placeholder {
+  color: var(--text-placeholder);
+}
+
+/* Option chip */
+.na-chip {
+  transition: all 0.18s;
+}
+.na-chip:hover:not(.na-chip-active) {
+  background: var(--interactive-hover) !important;
+  border-color: var(--border-subtle) !important;
+}
+.na-chip-active:hover {
+  opacity: 0.88;
+}
+
+/* Geo search dropdown */
+.na-geo-item {
+  transition: background 0.12s;
+}
+.na-geo-item:hover {
+  background: var(--interactive-hover) !important;
+}
+
+/* Range slider */
+.na-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary-button);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.12s;
+}
+.na-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.na-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary-button);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+/* Submit button hover */
+.na-submit-btn {
+  transition: all 0.2s;
+}
+.na-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(26, 26, 26, 0.25);
+}
+.na-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(26, 26, 26, 0.2);
+}
+.na-submit-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Pulse animation for page accent dot */
+@keyframes na-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.6); }
+}
+.na-accent-dot {
+  animation: na-pulse 2.5s ease-in-out infinite;
+}

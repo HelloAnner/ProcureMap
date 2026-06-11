@@ -1,40 +1,57 @@
+# System
 .DS_Store
 Thumbs.db
 
-# Local preferences and secrets
-CLAUDE-MY.md
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr
+target/
+build/
+
+# Environment and secrets
 .env
 .env.*
+*.local
 *.pem
 *.key
 *.crt
 
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-htmlcov/
-.venv/
-venv/
-env/
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Build and release outputs
-build/
-dist/
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
 *.exe
 *.zip
 *.tar.gz
 
-# ProcureMap generated data and reports
-outputs/
+# ProcureMap data and outputs
 data/*.json
-芜湖永康铝供应商雷达.html
+outputs/
 wuhu_aluminum_*.png
-*.log
 
-# Local design scratch files
+# Design scratch files
 *.pen
+
+# Local preferences
+CLAUDE-MY.md
+
+# Reference / demo files (not source)
+demo.html

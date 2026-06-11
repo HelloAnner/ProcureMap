@@ -1,37 +1,37 @@
 # ProcureMap
 
-ProcureMap turns a location, material, and search radius into a procurement supplier map. It uses the internal Xila/Corevo data interfaces, enriches the nearest suppliers, and renders the same interactive HTML style as `参考.html`.
+ProcureMap turns a location, material, and search radius into a procurement supplier map. It uses the internal Xila/Corevo data interfaces, enriches the nearest suppliers, and renders an interactive supplier intelligence dashboard.
 
-## Desktop App
+## Desktop App (Tauri v2)
 
-Run the local app:
+Built with Rust backend + React frontend.
 
-```bash
-python3 procuremap_app.py
-```
-
-The app opens `http://127.0.0.1:8765`, lets the user enter an origin, material, keywords, radius, and enrichment size, then shows progress while the analysis runs. The final result is saved under `outputs/` and can be opened directly in the browser.
-
-## CLI
+### Dev
 
 ```bash
-python3 procuremap_cli.py \
-  --origin 芜湖永康 \
-  --lat 31.35246 \
-  --lng 118.43313 \
-  --material 铝 \
-  --radius 300 \
-  --enrich-limit 20
+cd src-tauri && cargo run
 ```
 
-Useful options:
+The Tauri app opens a native desktop window with the full UI: workspace, analysis form, live processing pipeline, and interactive results with map, filters, and supplier detail drawer.
 
-- `--keywords`: comma-separated material keywords, for example `铝,铝业,铝材,铝合金,铝型材`.
-- `--areas`: comma-separated nearby areas used to shape search queries.
-- `--max-details`: maximum companies to fetch detail pages for.
-- `--enrich-limit`: nearest companies to enrich with risk, news, patents, bids, contacts, and related dimensions.
-- `--internal-token`: Xila/Corevo internal service token. If omitted, the tool reads `INSIGHT_INTERNAL_SERVICE_TOKEN`; in the dev environment it can also resolve the token from `ssh moss-dev`.
+### Build
 
-## Release
+```bash
+cd src-tauri && cargo build --release
+```
 
-Every pushed tag triggers `.github/workflows/release.yml`. The workflow builds `ProcureMap.exe` on Windows with PyInstaller, uploads the ZIP artifact, and attaches it to the GitHub release.
+The release binary lands at `src-tauri/target/release/ProcureMap`.
+
+### Frontend
+
+```bash
+npm install
+npm run dev     # Vite dev server (browser-only, no Tauri)
+npm run build   # Production build
+```
+
+## Architecture
+
+- **Backend**: Rust (Tauri v2) — SQLite, JWT auth, Xila API client, 15-component supplier scoring, CSV export
+- **Frontend**: React + TypeScript + Vite — Zustand stores, Leaflet map, Soft Bento design system
+- **Pipeline**: search → detail → enrich → scoring → report (progress events streamed via Tauri event system)
