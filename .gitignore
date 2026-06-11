@@ -1,0 +1,40 @@
+.DS_Store
+Thumbs.db
+
+# Local preferences and secrets
+CLAUDE-MY.md
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Build and release outputs
+build/
+dist/
+*.exe
+*.zip
+*.tar.gz
+
+# ProcureMap generated data and reports
+outputs/
+data/*.json
+芜湖永康铝供应商雷达.html
+wuhu_aluminum_*.png
+*.log
+
+# Local design scratch files
+*.pen
